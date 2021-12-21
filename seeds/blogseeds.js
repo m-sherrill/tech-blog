@@ -2,22 +2,22 @@ const { Blog } = require('../models');
 
 const blogData = [
   {
-    category_name: 'Shirts',
+    title: 'Hello World Blog',
+    content: 'This is a short blog post about saying hello to the world. So Hello, World! That is all. ',
+    user_id: 1,
   },
   {
-    category_name: 'Shorts',
+    title: 'Arrays are fun!',
+    content: 'I just love manipulating Arrays! Learn more about how you can to in this blog post. ',
+    user_id: 3,
   },
   {
-    category_name: 'Music',
-  },
-  {
-    category_name: 'Hats',
-  },
-  {
-    category_name: 'Shoes',
+    title: 'CSS is the greatest',
+    content: 'CSS is super fun! I particularly like making flex boxes. But I did recently start getting good at grid and I may like that just as much',
+    user_id: 2,
   },
 ];
 
-const seedBlog = () => Category.bulkCreate(blogData);
+const seedBlog = () => Blog.bulkCreate(blogData);
 
 module.exports = seedBlog;

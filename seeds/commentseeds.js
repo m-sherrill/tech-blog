@@ -2,22 +2,22 @@ const { Comment } = require('../models');
 
 const commentData = [
   {
-    category_name: 'Shirts',
+    new_comment: 'I love arrays too!',
+    blog_id: 2,
+    user_id: 3,
   },
   {
-    category_name: 'Shorts',
+    new_comment: 'I love saying hello to the world!',
+    blog_id: 1,
+    user_id: 1,
   },
   {
-    category_name: 'Music',
-  },
-  {
-    category_name: 'Hats',
-  },
-  {
-    category_name: 'Shoes',
+    new_comment: 'CSS is my favorite!',
+    blog_id: 3,
+    user_id: 2,
   },
 ];
 
-const seedComment = () => Category.bulkCreate(commentData);
+const seedComment = () => Comment.bulkCreate(commentData);
 
 module.exports = seedComment;
