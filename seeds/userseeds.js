@@ -2,22 +2,31 @@ const { User } = require('../models');
 
 const userData = [
   {
-    category_name: 'Shirts',
+    first_name: 'John',
+    last_name: 'Smith',
+    display_name: 'John-S',
+    email: 'john@john.com',
+    password: 'password12345',
   },
   {
-    category_name: 'Shorts',
+    first_name: 'Sue',
+    last_name: 'Johnson',
+    display_name: 'Sue-J',
+    email: 'sue@sue.com',
+    password: 'password12345',
   },
   {
-    category_name: 'Music',
+    first_name: 'Jane',
+    last_name: 'Doe',
+    display_name: 'Jane-D',
+    email: 'jane@jane.com',
+    password: 'password12345',
   },
-  {
-    category_name: 'Hats',
-  },
-  {
-    category_name: 'Shoes',
-  },
-];
+]
 
-const seedUser = () => Category.bulkCreate(userData);
+const seedUser = () => User.bulkCreate(userData, {
+    individualHooks: true,
+    returning: true,
+  });
 
 module.exports = seedUser;

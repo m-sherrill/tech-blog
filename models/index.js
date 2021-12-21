@@ -3,29 +3,30 @@ const Blog = require('./Blog')
 const Comment = require('./Comment')
 
 
-// Products belongsTo Category
+
 Blog.belongsTo(User, {
     foreignKey: 'user_id',
   });
-  
-  // Categories have many Products
+ 
  User.hasMany(Blog, {
     foreignKey: 'user_id',
   });
   
-  // Products belongToMany Tags (through ProductTag)
-  Blog.belongsToMany(Comment, {
-    through: {
-      model: ProductTag,
-      foreignKey: 'blog_tag'
-    },
-  });
+  Blog.hasMany(Comment, {
+    foreignKey: 'blog_id',
+    })
   
-  // Tags belongToMany Products (through ProductTag)
-  Tag.belongsToMany(Product, {
-    through: {
-      model: ProductTag,
-      foreignKey: 'product_id'
-    }
+  Comment.belongsTo(Blog, {
+    foreignKey: 'blog_id',
   })
+
+  Comment.belongsTo(User, {
+    foreignKey: 'user_id',
+  })
+  
+ 
+ User.hasMany(Comment, {
+    foreignKey: 'user_id',
+  })
+
 module.exports = { User, Blog, Comment };
