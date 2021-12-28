@@ -4,20 +4,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tech Block</title>
+  <title>Tech Blog</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
 </head>
 
 <body>
-  <header class="display-flex justify-space-between align-center p-2">
-    <h1>
-      Tech Blog
-    </h1>
-  </header>
-  <main class="container container-fluid mt-5">
+    <nav>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo">Tech Blog</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/logout" id="logout">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+  <main class="container">
     {{{ body }}}
   </main>
   <footer>
       <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
       <script src="./assets/js/login.js"></script>
       <script src="./assets/js/blogposts.js"></script>
   </footer>

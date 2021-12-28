@@ -20,3 +20,10 @@ $("#newPost").on("click", async function () {
     }
 })
 
+
+  // Or with jQuery
+
+  $(document).ready(function(){
+    $('.modal').modal();
+  });
+        
