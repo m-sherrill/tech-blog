@@ -43,13 +43,11 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
     try {
       const newBlog = await Blog.create({
-          // req.body example
-          // title:
-          // content:
-        ...req.body,
+         title: req.body.blogTitle,
+         content: req.body.blogContent,
         user_id: req.session.user_id,
       });
-  
+      console.log(newBlog)
       res.status(200).json(newBlog);
     } catch (err) {
       res.status(400).json(err);

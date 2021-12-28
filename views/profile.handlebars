@@ -1,1 +1,13 @@
-{{user}}
+HELLO WORLD!!
+
+
+    <h2>{{users.first_name}}</h2>
+  {{#each users.blogs as |blogs|}}
+<div class="row align-center mb-5">
+  <div class="col-md-6">
+    <h2>{{blogs.title}} </h2>
+    <h2>{{blogs.content}} </h2>
+
+  </div>
+</div>
+{{/each}}
