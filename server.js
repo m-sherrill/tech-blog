@@ -20,6 +20,7 @@ const sess = {
     db: sequelize
   })
 };
+
 const hbs = handlebars.create()
 
 app.use(session(sess));

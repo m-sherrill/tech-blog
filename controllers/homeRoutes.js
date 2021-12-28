@@ -1,10 +1,10 @@
 const router = require('express').Router();
+const { json } = require('express/lib/response');
 const { Comment, User, Blog } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    // Get all projects and JOIN with user data
     const blogData = await Blog.findAll({
       include: [
         {
@@ -13,13 +13,9 @@ router.get('/', async (req, res) => {
         },
       ],
     });
-
-    // Serialize data so the template can read it
-    const blogs = blogData.map((blog) => blog.get({ plain: true }));
-console.log(blogs)
-    // Pass serialized data and session flag into template
+    const blogs = blogData.map(blog => blog.get({ plain: true }));
     res.render('homepage', { 
-      ...blogs, 
+      blogs, 
       logged_in: req.session.logged_in 
     });
   } catch (err) {
@@ -39,9 +35,10 @@ router.get('/blogs/:id', async (req, res) => {
     });
 
     const blogs = blogData.get({ plain: true });
+    const blogsobj = JSON.stringify(blogs)
 
     res.render('blog', {
-      ...blogs,
+      blogsobj,
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -70,13 +67,14 @@ router.get('/profile', withAuth, async (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-  // If the user is already logged in, redirect the request to another route
+  // If a session exists, redirect the request to the homepage
   if (req.session.logged_in) {
-    res.redirect('/profile');
+    res.redirect('/');
     return;
   }
 
   res.render('login');
 });
+
 
 module.exports = router;
