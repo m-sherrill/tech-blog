@@ -39,10 +39,25 @@ if (email && password) {
   });
 console.log(response)
   if (response.ok) {
-    document.location.replace('/profile');
+    document.location.replace('/dashboard');
     console.log("success", response)
   } else {
     console.log('Failed to sign up.');
   }
 }
+})
+
+$("#logout").on("click", async function() {
+  event.preventDefault();
+  const response = await fetch('/api/users/logout', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+  });
+
+  if (response.ok) {
+    alert("You have logged out!")
+    document.location.replace('/');
+  } else {
+    alert(response.statusText);
+  }
 })
