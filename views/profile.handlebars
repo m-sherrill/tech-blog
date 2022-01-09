@@ -1,5 +1,6 @@
-
 <h2>Hi, {{users.first_name}}!</h2>
+<i>Welcome to your dashboard! From here you can add new blog posts. As well as, update and delete your previous
+  posts.</i><br /><br />
 <!-- Modal Trigger -->
 
 <a class="waves-effect waves-light btn modal-trigger" href="#modal1">New Blog Post</a>
@@ -10,12 +11,15 @@
 {{#each blogs}}
 <div class="blogPost">
   <div class="row blogTitle">
-    {{title}}&nbsp;&nbsp;<button><img src="./assets/images/edit.png"></button>&nbsp;&nbsp;<button><img src="./assets/images/delete.png"></button>
-    <div id="dateAuthor">Posted on {{format_date createdAt}} by {{user.display_name}}<br/><br/></div>
-     <div class="row blogContent">{{content}}
+    {{title}}&nbsp;&nbsp;<a class="modal-trigger" href="#updatePostModal{{id}}"><img
+        src="./assets/images/edit.png"></a>&nbsp;&nbsp;<button class="deletePostBtn" id="deletePost{{id}}" data-id="{{id}}"><img
+        src="./assets/images/delete.png"></button>
+    <div id="dateAuthor">Posted on {{format_date createdAt}} by
+      {{user.display_name}}<br /><br /></div>
+    <div class="row blogContent">{{content}}
+    </div>
   </div>
-  </div>
- 
+
 </div>
 {{/each}}
 
@@ -44,3 +48,30 @@
     </div>
   </div>
 </div>
+
+{{!-- Update Post Modal --}}
+{{#each blogs}}
+<div id="updatePostModal{{id}}" class="modal">
+  <div class="modal-content">
+    <div class="col-md-6">
+      <h2>Update your Post!</h2>
+
+      <form class="form" >
+        <div class="form-group" >
+          <label for="blog-title">Title</label>
+          <input class="form-input" type="text" id="update-title{{id}}" value="{{title}}"/>
+        </div>
+        <div class="form-group">
+          <label for="blog-content">Post</label>
+          <textarea class="form-input" rows="20" type="text" id="update-content{{id}}">{{content}}</textarea>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary updatePostBtn" id="updatePost{{id}}" data-id="{{id}}" type="submit">Update Post</button> <a href="#!"
+            class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+{{/each}}

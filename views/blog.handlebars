@@ -12,6 +12,13 @@
 {{else}}
 <i>Login to post a new comment</i>
 {{/if}}  
+<br/><br/>
+{{#each blogs.comments}}
+<div class="row comments">
+{{this.new_comment}}<br/>
+<div id="dateAuthorComment">Posted on {{format_date this.createdAt}} by {{this.user.display_name}}<br/><br/></div>
+</div>
+{{/each}}
 
 {{!-- New Comment Modal --}}
 <div id="newCommentModal" class="modal">
@@ -34,16 +41,6 @@
 </div>
 
 </div>
-{{#each blogs.comments}}
-<div class="row comments">
-{{this.new_comment}}<br/>
-<div id="dateAuthorComment">Posted on {{format_date this.createdAt}} by {{this.user.display_name}}<br/><br/></div>
-{{#if blogs.user}}
-<button class="btn">Update</button>  <button class="btn">Delete Comment</button>
-{{else}}
-<i>Login to update and delete comment.</i>
-{{/if}}
-</div>
-{{/each}}
+
 
 

@@ -1,7 +1,7 @@
 {{#each blogs}}
 <div class="blogPost">
   <div class="row blogTitle">
-    <a href=./{{id}}>{{title}}</a>
+    <a href=./{{id}}>{{title}} <img src="./assets/images/view.png"></a>
     <div id="dateAuthor">Posted on {{format_date createdAt}} by {{user.display_name}}<br/><br/></div>
      <div class="row blogContent">{{content}}
   </div>

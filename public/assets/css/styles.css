@@ -24,9 +24,6 @@ textarea {
     overflow-wrap: break-word;
 }
 
-.blogcontent {
-    
-}
 
 .blogTitle {
     font-weight: bolder;
@@ -78,4 +75,8 @@ button {
 
 #dateAuthorComment {
     color: black;
+}
+
+.blogTitle a:link, .blogTitle a:visited {
+    color: #ffa295;
 }

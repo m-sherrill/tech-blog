@@ -12,7 +12,7 @@ Comment.init(
             autoIncrement: true,
         },
         new_comment: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull: false,
         },
         blog_id: {
