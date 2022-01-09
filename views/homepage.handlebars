@@ -1,13 +1,11 @@
-<h1>HOMEPAGE</h1>
-
-<a href="./login">Login Page</a>
-<a href="./api/users/logout" id="logout">Logout Page</a>
-
-{{#each blogs as |blog| }}
-<div class="row align-center mb-5">
-  <div class="col-md-6">
-    <h2>{{blog.title}}</h2>
-    <p>{{blog.content}}</p>
+{{#each blogs}}
+<div class="blogPost">
+  <div class="row blogTitle">
+    <a href=./{{id}}>{{title}}</a>
+    <div id="dateAuthor">Posted on {{format_date createdAt}} by {{user.display_name}}<br/><br/></div>
+     <div class="row blogContent">{{content}}
+  </div>
   </div>
 </div>
+<hr>
 {{/each}}

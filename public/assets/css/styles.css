@@ -1,0 +1,58 @@
+:root {
+    background-color: #2F3A8F;
+    color: white;
+}
+
+#nav {
+    padding-left: 20px;
+    background-color: #FE7E6D
+    font-color: white;
+}
+
+.modal {
+    max-height: 100%;
+    overflow: visible
+}
+
+label {
+    font-size: 16px;
+}
+
+textarea {
+    height: 250px;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+}
+
+.blogcontent {
+    
+}
+
+.blogTitle {
+    font-weight: bolder;
+    font-size: 30px;
+    padding: 15px;
+}
+
+.blogPost {
+    margin-top: 20px;
+}
+
+.blogContent {
+    font-weight: normal;
+    color: black;
+    padding: 15px;
+    background-color: #FEECE9;
+    white-space: pre-line;
+    font-size: 16px;
+    border: 2px solid #CCD1E4;
+}
+
+#dateAuthor {
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.editDiv {
+    text-align: right;
+}

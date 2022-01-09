@@ -2,7 +2,7 @@ $("#newPost").on("click", async function () {
     event.preventDefault();
 
     const blogTitle = $('#blog-title').val().trim();
-    const blogContent = $('#blog-content').val().trim();
+    const blogContent = $('#blog-content').val().trim()
 
     if (blogTitle && blogContent) {
         const response = await fetch('/api/blogs', {

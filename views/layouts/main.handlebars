@@ -6,17 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tech Blog</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="./assets/css/styles.css">
 
 </head>
 
 <body>
-    <nav>
+    <nav id="nav">
     <div class="nav-wrapper">
       <a href="/" class="brand-logo">Tech Blog</a>
       <ul class="right hide-on-med-and-down">
         <li><a href="/dashboard">Dashboard</a></li>
-        <li><a href="/login">Login</a></li>
+        
+        {{#if logged_in}}
         <li><a href="/logout" id="logout">Logout</a></li>
+        {{else}}
+        <li><a href="/login">Login</a></li>
+        {{/if}}
+        
       </ul>
     </div>
   </nav>

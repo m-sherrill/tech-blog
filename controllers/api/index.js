@@ -7,4 +7,4 @@ router.use('/blogs', blogPostRoutes);
 router.use('/comments', commentRoutes);
 router.use('/users', userRoutes);
 
-module.exports = router;
+module.exports = router
