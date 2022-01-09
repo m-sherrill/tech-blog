@@ -5,7 +5,7 @@
 
 #nav {
     padding-left: 20px;
-    background-color: #FE7E6D
+    background-color: #FE7E6D;
     font-color: white;
 }
 
@@ -32,6 +32,7 @@ textarea {
     font-weight: bolder;
     font-size: 30px;
     padding: 15px;
+    color: #ffa295;
 }
 
 .blogPost {
@@ -45,14 +46,36 @@ textarea {
     background-color: #FEECE9;
     white-space: pre-line;
     font-size: 16px;
-    border: 2px solid #CCD1E4;
 }
 
 #dateAuthor {
     font-size: 14px;
     font-weight: normal;
+    color: white;
 }
 
 .editDiv {
     text-align: right;
+}
+
+.comments {
+    font-weight: normal;
+    color: black;
+    padding: 15px;
+    background-color: #CCD1E4;
+    white-space: pre-line;
+    font-size: 16px;
+}
+
+button {
+    background-color: transparent;
+    border: 0px;
+}
+
+.modal {
+    color: black;
+}
+
+#dateAuthorComment {
+    color: black;
 }

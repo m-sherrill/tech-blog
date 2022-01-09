@@ -10,14 +10,13 @@
 {{#each blogs}}
 <div class="blogPost">
   <div class="row blogTitle">
-    <a href=./blogs/{{id}}>{{title}}&nbsp;&nbsp;<img src="./assets/images/edit.png"></a>
+    {{title}}&nbsp;&nbsp;<button><img src="./assets/images/edit.png"></button>&nbsp;&nbsp;<button><img src="./assets/images/delete.png"></button>
     <div id="dateAuthor">Posted on {{format_date createdAt}} by {{user.display_name}}<br/><br/></div>
      <div class="row blogContent">{{content}}
   </div>
   </div>
  
 </div>
-<hr>
 {{/each}}
 
 

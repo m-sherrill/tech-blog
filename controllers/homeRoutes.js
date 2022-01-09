@@ -50,6 +50,17 @@ router.get('/dashboard', withAuth, async (req, res) => {
   }
 });
 
+// login page!
+router.get('/login', (req, res) => {
+  // If a session exists, redirect the request to the homepage
+  if (req.session.logged_in) {
+    res.redirect('/');
+    return;
+  }
+  res.render('login');
+});
+
+
 // Use withAuth middleware to prevent access to route -- dashboard -- only showing what the user created!
 router.get('/:id', async (req, res) => {
   try {
@@ -65,7 +76,7 @@ router.get('/:id', async (req, res) => {
     });
     const blogs = blogData.get({ plain: true });
     console.log(blogs)
-    res.render('publicblog', { 
+    res.render('blog', { 
     blogs: blogs, 
     logged_in: req.session.logged_in 
     });
@@ -75,18 +86,6 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-
-
-
-// login page!
-router.get('/login', (req, res) => {
-  // If a session exists, redirect the request to the homepage
-  if (req.session.logged_in) {
-    res.redirect('/');
-    return;
-  }
-  res.render('login');
-});
 
 
 module.exports = router

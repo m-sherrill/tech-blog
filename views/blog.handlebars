@@ -1,0 +1,49 @@
+<div class="blogPost">
+  <div class="row blogTitle">
+    {{blogs.title}}
+    <div id="dateAuthor">Posted on {{format_date blogs.createdAt}} by {{blogs.user.display_name}}<br/><br/></div>
+     <div class="row blogContent">{{blogs.content}}
+  </div>
+  </div>
+</div>
+<div class="row commentHeader"><h5>Comments</h5>
+{{#if logged_in}}
+<a class="waves-effect waves-light btn modal-trigger" href="#newCommentModal"><button class="btn addCommentOpen">Add New Comment</button></a>
+{{else}}
+<i>Login to post a new comment</i>
+{{/if}}  
+
+{{!-- New Comment Modal --}}
+<div id="newCommentModal" class="modal">
+  <div class="modal-content">
+    <div>
+      <h2>Post a New Comment!</h2>
+      <form class="form">
+        <div class="form-group">
+          <label for="new-comment">New Comment</label>
+          <textarea class="form-input" rows="20" type="text" id="new-comment"></textarea>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary" id="newComment" type="submit" data-id="{{blogs.id}}">Post Comment</button> <a href="#!"
+            class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+</div>
+{{#each blogs.comments}}
+<div class="row comments">
+{{this.new_comment}}<br/>
+<div id="dateAuthorComment">Posted on {{format_date this.createdAt}} by {{this.user.display_name}}<br/><br/></div>
+{{#if blogs.user}}
+<button class="btn">Update</button>  <button class="btn">Delete Comment</button>
+{{else}}
+<i>Login to update and delete comment.</i>
+{{/if}}
+</div>
+{{/each}}
+
+

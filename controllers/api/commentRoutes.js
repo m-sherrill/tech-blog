@@ -2,51 +2,19 @@ const router = require('express').Router();
 const { Blog, User, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// Get all comments posts
-router.get('/', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
-        const commentData = await Comment.findAll(
-            {
-                include: [
-                    {
-                        model: User,
-                        attributes: ['display_name'],
-                    },
-                    {
-                        model: Blog,
-                        attributes: ['id'],
-                    }
-                ],
-            });
-        res.status(200).json(commentData);
+        console.log(req.body, "REQ.BODY")
+        const newBlog = await Comment.create({
+            new_comment: req.body.comment,
+            blog_id: req.body.id,
+            user_id: req.session.user_id,
+        });
+        console.log(newBlog)
+        res.status(200).json(newBlog);
     } catch (err) {
-        console.log(err)
-        res.status(500).json(err);
+        res.status(400).json(err);
     }
 });
-
-// Get all blog posts by User id
-router.get('/:id', async (req, res) => {
-    try {
-        console.log(req.params.id)
-        const commentData = await Comment.findByPk(req.params.id, {
-            include: [
-                {
-                    model: User,
-                    attributes: ['display_name'],
-                },
-                {
-                    model: Blog,
-                    attributes: ['id'],
-                }
-            ],
-        });
-        res.status(200).json(commentData);
-    } catch (err) {
-        console.log(err)
-        res.status(500).json(err);
-    }
-})
-
 
 module.exports = router
