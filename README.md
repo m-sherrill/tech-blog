@@ -1,7 +1,3 @@
-Tech Blog HW
-
-deployed https://msherrill-techblog.herokuapp.com/
-
 # Tech Blog
   
 ## Description
