@@ -11,7 +11,7 @@
 {{#each blogs}}
 <div class="blogPost">
   <div class="row blogTitle">
-    {{title}}&nbsp;&nbsp;<a class="modal-trigger" href="#updatePostModal{{id}}"><img
+    <a href="/{{id}}">{{title}}</a>&nbsp;&nbsp;<a class="modal-trigger" href="#updatePostModal{{id}}"><img
         src="./assets/images/edit.png"></a>&nbsp;&nbsp;<button class="deletePostBtn" id="deletePost{{id}}" data-id="{{id}}"><img
         src="./assets/images/delete.png"></button>
     <div id="dateAuthor">Posted on {{format_date createdAt}} by
