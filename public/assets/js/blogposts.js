@@ -12,8 +12,10 @@ $("#newPost").on("click", async function () {
         });
         console.log(response)
         if (response.ok) {
-            document.location.replace('/dashboard');
-            console.log("success", response)
+            const result = await response.json()
+            console.log(result)
+            document.location.replace(`/${result}`);
+            console.log("success", newPost)
         } else {
             console.log('Failed to create a new blog');
         }

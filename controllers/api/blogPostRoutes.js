@@ -9,8 +9,8 @@ router.post('/', async (req, res) => {
          content: req.body.blogContent,
         user_id: req.session.user_id,
       });
-      console.log(newBlog)
-      res.status(200).json(newBlog);
+      console.log(newBlog.id)
+      res.status(200).json(newBlog.id);
     } catch (err) {
       res.status(400).json(err);
     }
@@ -50,6 +50,30 @@ router.post('/', async (req, res) => {
   
       res.status(200).json(blogData);
     } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+
+  router.get('/:id', async (req, res) => {
+    try {
+      const blogData = await Blog.findByPk(req.params.id,{
+          include: [{model: User,
+            attributes: ['display_name'], exclude: ['password'] }, {model: Comment, 
+            include: [
+              {
+                model: User,
+                attributes: ['display_name']
+              }],
+          }],
+      });
+      const blogs = blogData.get({ plain: true });
+      console.log(blogs)
+      res.render('blog', { 
+      blogs: blogs, 
+      logged_in: req.session.logged_in 
+      });
+    } catch (err) {
+      console.log(err)
       res.status(500).json(err);
     }
   });
